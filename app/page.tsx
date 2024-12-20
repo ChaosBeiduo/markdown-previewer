@@ -23,17 +23,20 @@ export default function Home() {
     return (
         <div className="w-full h-full bg-white shadow-lg box-border rounded-lg">
             <div className="flex gap-8 p-6 h-full">
-                <div className="w-1/2 h-full">
+                <div className="flex flex-col w-1/2 h-full overflow-y-auto p-4 border-2 border-gray-300 rounded-md">
+                    <p className="mb-2 w-full h-8 border-b-2 border-gray-200 cursor-default">Markdown</p>
                       <textarea
                           value={markdown}
                           onChange={handleChange}
-                          className="w-full h-full p-4 border-2 border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full max-h-full border-gray-300 rounded-md resize-none focus:outline-none"
                           placeholder="在这里输入 Markdown 文本"
+                          style={{ flex: 2 }}
                       />
                 </div>
 
                 {/* 预览区 */}
                 <div className="w-1/2 overflow-y-auto p-4 bg-gray-50 border-2 border-gray-300 rounded-md h-full">
+                    <p className="mb-2 w-full h-8 border-b-2 border-gray-200 cursor-default">Preview</p>
                     <div
                         className="prose prose-lg"
                         dangerouslySetInnerHTML={{__html: convertMarkdownToHTML(markdown)}}
